@@ -41,6 +41,9 @@ public class DB2Client extends BaseJdbcClient
         // https://www-01.ibm.com/support/knowledgecenter/ssw_ibm_i_72/rzaha/conprop.htm
         // block size (aka fetch size), default 32
         connectionProperties.setProperty("block size", "512");
+
+        // http://stackoverflow.com/questions/16910791/getting-error-code-4220-with-null-sql-state
+        System.setProperty("db2.jcc.charsetDecoderEncoder", "3");
     }
 
     @Override
